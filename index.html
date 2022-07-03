@@ -8,7 +8,7 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
         const root = document.getElementById("root");
-        const Title = (
+        const Title = () => (
             <h3 
                 id="title" 
                 onMouseEnter={
@@ -18,7 +18,7 @@
                 Hello I'm a title
             </h3>
         );
-        const Button = (
+        const Button = () => (
             <button 
                 style={{
                     backgroundColor: "tomato"
@@ -30,8 +30,13 @@
                 Click me
             </button>
         );
-
-        const div = React.createElement("div", null, [Title, Button]);
-        ReactDOM.render(div, root);
+        /* 컴포넌트의 첫 글자는 반드시 대문자여야 함 소문자로 작성하면 일반적인 html 태그라고 인식 */
+        const Div = () => (
+            <div>
+                <Title /> 
+                <Button />
+            </div>
+        );
+        ReactDOM.render(<Div/>, root);
     </script>
     </html>
